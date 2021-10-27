@@ -2,7 +2,9 @@
 % Quade, D. (1967). Rank analysis of covariance. Journal of the American Statistical Association, 62(320), 1187-1200
 % implementation is based on https://www.ibm.com/support/pages/can-spss-do-nonparametric-or-rank-analysis-covariance-quades-test
 
-function [p,t,stats] = quadetest(y,x,group)
+function [p,t,stats] = quadetest(y,x,group,displayopt)
+    if nargin < 4, displayopt = 'on'; end 
+
     % Rank the dependent variable and any covariates
     m = (size(y,1)+1) / 2;
     C = x;
@@ -17,5 +19,5 @@ function [p,t,stats] = quadetest(y,x,group)
     [b,bint,r] = regress(R,C);
     
     % one-way analysis of variance (ANOVA), using the residuals from the regression
-    [p,t,stats] = anova1(r,group);
+    [p,t,stats] = anova1(r,group,displayopt);
 end
