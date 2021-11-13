@@ -1,4 +1,4 @@
-# Quade test
+# Quade's test
 
 Quade's test is nonparametric or rank analysis of covariance (ANCOVA).
 
